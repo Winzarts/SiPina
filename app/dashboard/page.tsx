@@ -122,7 +122,7 @@ export default function DashboardPage() {
             </div>
             {/* Decorative background element */}
             <div
-              className={`absolute -right-4 -bottom-4 w-24 h-24 bg-gradient-to-br ${card.color} opacity-5 blur-3xl group-hover:opacity-20 transition-opacity duration-500`}
+              className={`absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-gradient-to-br ${card.color} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
             ></div>
           </Link>
         ))}

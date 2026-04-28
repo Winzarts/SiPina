@@ -84,7 +84,7 @@ export default function AddPetugasPage() {
         Kembali ke Dashboard
       </Link>
 
-      <Card className="border-none shadow-2xl shadow-slate-200/50 dark:shadow-none dark:bg-slate-900/50 backdrop-blur-xl rounded-[2rem] overflow-hidden">
+      <Card className="border-none shadow-2xl shadow-slate-200/50 dark:shadow-none dark:bg-slate-900/50 rounded-[2rem] overflow-hidden">
         <CardHeader className="p-8 pb-4">
           <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
             <UserPlus className="text-primary" size={28} />

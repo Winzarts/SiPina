@@ -8,6 +8,7 @@ import {
 import { AppSidebar } from "@/components/app-sidebar";
 import { Plus } from "lucide-react";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function DashboardLayout({
   children,
@@ -33,7 +34,8 @@ export default function DashboardLayout({
               </div>
             </div>
 
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
               <Link
                 href="/dashboard/peminjaman/tambah"
                 className="hidden md:flex items-center gap-2 rounded-2xl bg-primary text-white px-6 py-2.5 text-xs font-black uppercase tracking-widest hover:shadow-lg hover:shadow-primary/30 transition-all hover:-translate-y-0.5"

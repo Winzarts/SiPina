@@ -218,7 +218,7 @@ export default function KategoriPage() {
                   </Button>
                 </div>
               </div>
-              <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-full -mr-10 -mt-10 blur-2xl group-hover:bg-blue-500/10 transition-colors" />
+              <div className="absolute top-0 right-0 w-20 h-20 rounded-full -mr-10 -mt-10 group-hover:bg-blue-500/10 transition-colors" />
             </div>
           ))}
         </div>

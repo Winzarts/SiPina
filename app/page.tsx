@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import { ThemeToggle } from "@/components/theme-toggle";
 export default function LoginPage() {
   const [isRegister, setIsRegister] = useState(false);
   const [formData, setFormData] = useState({
@@ -77,8 +77,12 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-indigo-100 via-slate-50 to-blue-100 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950 px-4 transition-colors duration-1000 overflow-hidden relative">
       {/* Decorative Blobs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-400/10 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-400/5 rounded-full delay-1000"></div>
+
+      <div className="absolute top-6 right-6 z-50">
+        <ThemeToggle />
+      </div>
 
       <div className="w-full max-w-md glass-card p-10 rounded-3xl relative z-10 animate-in fade-in zoom-in duration-700">
         <div className="flex flex-col items-center mb-10">

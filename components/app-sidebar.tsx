@@ -31,6 +31,7 @@ const menuItems = [
 export function AppSidebar() {
   const pathname = usePathname();
   const [user, setUser] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -39,6 +40,8 @@ export function AppSidebar() {
         setUser(userData);
       } catch (err) {
         console.error("Failed to fetch user:", err);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchUser();
@@ -47,24 +50,24 @@ export function AppSidebar() {
   return (
     <Sidebar
       collapsible="icon"
-      className="border-r border-sidebar-border bg-sidebar/50 backdrop-blur-xl"
+      className="border-r border-sidebar-border bg-white dark:bg-slate-950"
     >
-      <SidebarHeader className="p-6">
-        <div className="flex items-center gap-4 px-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 dark:ring-white/10 p-2">
+      <SidebarHeader className="p-4 md:p-6 group-data-[collapsible=icon]:p-2">
+        <div className="flex items-center gap-3 px-2 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:justify-center">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center">
             <img
               src="/Sipina.png"
               alt="Logo"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="flex flex-col group-data-[collapsible=icon]:hidden">
-            <span className="font-black text-2xl tracking-tight text-gradient">
+          <div className="flex flex-col min-w-0 group-data-[collapsible=icon]:hidden">
+            <span className="font-bold text-xl tracking-tight truncate">
               {user?.nama_sekolah || "SiPina"}
             </span>
             {user?.nama_sekolah && (
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 -mt-1">
-                KIK Management
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 truncate">
+                Sarpras Management
               </span>
             )}
           </div>
@@ -73,27 +76,28 @@ export function AppSidebar() {
 
       <SidebarContent className="px-3">
         <SidebarGroup>
-          <SidebarGroupLabel className="px-4 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+          <SidebarGroupLabel className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">
             Main Navigation
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="gap-1.5">
+            <SidebarMenu className="gap-1">
               {menuItems.map((item) => {
-                const isActive = pathname === item.url;
+                const isActive = pathname === item.url || (item.url !== '/dashboard' && pathname.startsWith(item.url));
+                
                 return (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       asChild
                       isActive={isActive}
                       tooltip={item.title}
-                      className={`flex items-center gap-3.5 px-4 py-6 rounded-2xl transition-all duration-300 ${
+                      className={`flex items-center gap-3 px-3 py-5 rounded-xl transition-colors ${
                         isActive
-                          ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 font-bold"
-                          : "text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary"
+                          ? "bg-primary text-primary-foreground font-semibold"
+                          : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-foreground"
                       }`}
                     >
                       <Link href={item.url}>
-                        <item.icon size={22} strokeWidth={isActive ? 2.5 : 2} />
+                        <item.icon size={20} strokeWidth={isActive ? 2.5 : 2} />
                         <span className="group-data-[collapsible=icon]:hidden">
                           {item.title}
                         </span>
@@ -107,17 +111,17 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="p-4 border-t border-sidebar-border/50">
-        <div className="flex items-center gap-4 p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/50 ring-1 ring-slate-100 dark:ring-white/5 group-data-[collapsible=icon]:hidden">
-          <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-indigo-600 flex items-center justify-center text-sm font-black text-white shadow-md uppercase">
-            {user?.username?.[0] || user?.nama?.[0] || "U"}
+      <SidebarFooter className="p-4">
+        <div className="flex items-center gap-3 p-2 rounded-xl bg-slate-50 dark:bg-slate-900 group-data-[collapsible=icon]:hidden">
+          <div className="h-9 w-9 shrink-0 rounded-lg bg-primary flex items-center justify-center text-sm font-bold text-primary-foreground uppercase">
+            {isLoading ? "-" : (user?.username?.[0] || user?.nama?.[0] || "U")}
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="text-sm font-bold truncate dark:text-white">
-              {user?.username || "Loading..."}
+            <span className="text-sm font-semibold truncate text-foreground">
+              {isLoading ? "Loading..." : (user?.username || "Guest")}
             </span>
-            <span className="text-[10px] font-medium text-slate-400 truncate">
-              {user?.email || "..."}
+            <span className="text-xs text-slate-500 truncate">
+              {isLoading ? "..." : (user?.email || "")}
             </span>
           </div>
         </div>

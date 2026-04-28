@@ -348,7 +348,7 @@ export default function BarangPage() {
                 </div>
               </div>
 
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-blue-500/10 transition-colors" />
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-full -mr-16 -mt-16 group-hover:bg-blue-500/10 transition-colors" />
             </div>
           ))}
         </div>
