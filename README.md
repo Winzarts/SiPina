@@ -1,6 +1,6 @@
-# KIK - Frontend
+# SiPina
 
-KIK (Kartu Inventaris Kelas) Frontend adalah antarmuka web modern yang dibangun menggunakan Next.js untuk sistem manajemen inventaris sekolah. Dashboard ini memungkinkan petugas dan admin untuk mengelola data barang, memantau peminjaman, dan melihat statistik secara real-time.
+SiPina (Si Peminjaman Sarana dan Prasarana) adalah antarmuka web modern yang dibangun menggunakan Next.js untuk sistem manajemen inventaris sekolah. Dashboard ini memungkinkan petugas dan admin untuk mengelola data barang, memantau peminjaman, dan melihat statistik secara real-time.
 
 ## ✨ Fitur Utama
 
