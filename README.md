@@ -6,10 +6,31 @@ SiPina (Si Peminjaman Sarana dan Prasarana) adalah antarmuka web modern yang dib
 
 - **Modern Dashboard**: Ringkasan data inventaris dan statistik peminjaman.
 - **Manajemen Data**: Interface intuitif untuk pengelolaan Barang, Kategori, Kelas, dan Sekolah.
-- **Sistem Peminjaman**: Alur kerja peminjaman dan pengembalian barang yang mudah.
+- **Pencatatan Peminjaman (Fitur Utama)**: Fungsi inti website untuk mengelola sirkulasi barang secara akurat dan real-time. Fitur ini mencakup:
+  - **Pencatatan Detail**: Mendata identitas peminjam, barang yang dipinjam, jumlah, tanggal peminjaman, dan batas waktu pengembalian.
+  - **Pelacakan Status**: Memantau status transaksi secara real-time (seperti "Sedang Dipinjam", "Terlambat", atau "Dikembalikan").
+  - **Pengingat & Jatuh Tempo**: Memudahkan identifikasi barang yang mendekati atau telah melewati batas waktu pengembalian (Overdue).
+  - **Filter, Pencarian, & Pengurutan**: Mencari data secara spesifik atau mengurutkan riwayat peminjaman berdasarkan tanggal terbaru, status, maupun peminjam untuk efisiensi manajemen.
 - **Responsive Design**: Tampilan yang optimal baik di desktop maupun perangkat mobile.
 - **Dark Mode Support**: Dukungan tema gelap dan terang melalui `next-themes`.
 - **UI Komponen Premium**: Menggunakan komponen berbasis Radix UI untuk aksesibilitas dan performa terbaik.
+
+## 👥 Alur Pengguna (User Flow)
+
+SiPina memiliki dua peran pengguna dengan alur kerja yang berbeda:
+
+### 👑 Alur Kerja Admin
+Admin memiliki kontrol penuh atas sistem. Tugas utama admin meliputi:
+1. **Mengelola Data Master**: Mengakses halaman *Sekolah*, *Kelas*, dan *Kategori* untuk menambah, mengedit, atau menghapus data master yang akan digunakan oleh petugas.
+2. **Pengelolaan Petugas**: Menambahkan atau menghapus akun petugas.
+3. **Pengelolaan Barang**: Mengelola katalog barang secara menyeluruh.
+4. **Pantau Aktivitas**: Melihat semua aktivitas peminjaman dari dashboard utama.
+
+### 💼 Alur Kerja Petugas
+Petugas bertugas dalam operasional harian sekolah. Alur kerja petugas meliputi:
+1. **Peminjaman Baru**: Menambahkan transaksi peminjaman baru melalui menu *Peminjaman*. Petugas memilih barang, mencatat detail peminjam, dan menentukan tanggal jatuh tempo.
+2. **Pengembalian**: Memperbarui status peminjaman menjadi "Dikembalikan" saat barang fisik telah diterima.
+3. **Manajemen Barang**: Menambah daftar barang baru ke sistem (seperti alat tulis, perlengkapan olahraga) serta mengupdate kondisi/stok barang.
 
 ## 🛠️ Stack Teknologi
 

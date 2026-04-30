@@ -72,7 +72,7 @@ export default function DashboardPage() {
         </div>
         <div className="flex gap-3">
           <Link
-            href="/dashboard/peminjaman/tambah"
+            href="/dashboard/barang"
             className="px-6 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all active:scale-95 text-sm"
           >
             Buat Peminjaman
