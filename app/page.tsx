@@ -42,10 +42,10 @@ export default function LoginPage() {
       return;
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
     try {
-      const response = await fetch(`${baseUrl}/auth/send-register-otp`, {
+      const response = await fetch(`${BASE_URL}/auth/send-register-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
