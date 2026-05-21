@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { getBaseUrl } from "@/lib/api";
 
 type ViewState = "login" | "register" | "register_otp" | "forgot_password" | "reset_password";
 
@@ -76,10 +77,8 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
     try {
-      const response = await fetch(`${baseUrl}/auth/register`, {
+      const response = await fetch(`${getBaseUrl()}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

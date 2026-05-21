@@ -1,4 +1,6 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+export const getBaseUrl = () => {
+  return process.env.NEXT_PUBLIC_API_BASE_URL;
+}
 
 export async function apiRequest(endpoint: string, options: RequestInit = {}) {
   const token = localStorage.getItem("token");
@@ -8,7 +10,7 @@ export async function apiRequest(endpoint: string, options: RequestInit = {}) {
     ...options.headers,
   };
 
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
+  const response = await fetch(`${getBaseUrl()}${endpoint}`, {
     ...options,
     headers,
   });
